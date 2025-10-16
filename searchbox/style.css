@@ -1,0 +1,59 @@
+body{
+     margin: 0;
+     padding: 0;
+     background-image: url(https://images.unsplash.com/photo-1588421357574-87938a86fa28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80);
+     background-repeat: no-repeat;
+     background-size: cover;
+  }
+   .search-form{
+    position: absolute;
+    top: 45%;
+    left:36%;
+    width: 250px;
+    border: 2px solid #fff;
+    height: 50px;
+		border-radius: 3px;
+
+   }
+   .search-form input{
+    background: transparent;
+    border: none;
+    height: 100%;
+    width: 80%;
+    box-sizing: border-box;
+    color: #fff;
+   }
+
+   input[type=text]::placeholder{
+    padding-left: 10px;
+    color: #e8e8e8;
+    transition: .5s ease-in-out;
+   }
+
+   input[type=text]:focus{
+    padding-left: 10px;
+    outline: none;
+   }
+
+   input[type=text]:focus::placeholder{
+    padding-left: 100%;
+    color: transparent;
+   }
+   button{
+    height: 100%;
+    width: 18%;
+    background: transparent;
+    border: none;
+    border-left: 2px solid #ffff;
+    cursor: pointer;
+   }
+   button:focus{
+    outline: none;
+   }
+   button i{
+    color: #fff;
+    transition: .2s ease-in-out;
+   }
+   button i:hover{
+    color: #000;
+   }
