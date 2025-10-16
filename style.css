@@ -1,0 +1,72 @@
+ /*Styling for Rotating Fan*/
+
+body{
+  font-family: "Poppins", sans-serif;
+  background: #cfd0d0;
+}
+.container{
+  width: 100%;
+  text-align: center;
+}
+.svg{
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 40px;
+}
+img{
+  width: 450px;
+  height: 450px;
+}
+input[type=radio]{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  display: none;
+}
+label{
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 900;
+  margin-left: 20px;
+  cursor: pointer;
+  box-shadow: 5px 5px 13px #b6b7b7 , -5px -5px 13px #e8e9e9;
+}
+label:hover{
+  box-shadow: inset 5px 5px 13px #b6b7b7 , -5px -5px 13px #e8e9e9;
+}
+.wings{
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#stop:checked ~ .svg > .wings{
+  transform: rotate(0);
+}
+#low:checked  ~ .svg > .wings{
+  animation-name: slow;
+  animation-duration: 1s;
+}
+@keyframes slow{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+#second:checked  ~ .svg > .wings{
+  animation-name: mdm;
+  animation-duration: .5s;
+}
+@keyframes mdm{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+#third:checked  ~ .svg > .wings{
+  animation-name: fast;
+  animation-duration: .1s;
+}
+@keyframes fast{
+  100%{
+    transform: rotate(360deg);
+  }
+}

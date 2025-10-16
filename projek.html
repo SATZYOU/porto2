@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+  /* RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding-top: 70px; /* biar tidak ketutup navbar */
+  }
+
+  /* NAVBAR */
+  nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(20,20,20,0.95);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 30px;
+    z-index: 1000;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #23e7ff;
+  }
+  .logo span {
+    color: #fff;
+  }
+
+  .links {
+    display: flex;
+    gap: 25px;
+  }
+
+  .links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  .links a:hover {
+    color: #23e7ff;
+  }
+
+  .hamburger {
+    display: none;
+    font-size: 1.8rem;
+    color: #23e7ff;
+    cursor: pointer;
+  }
+
+  /* DROPDOWN MENU (HP) */
+  .dropdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.96);
+    width: 100%;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .dropdown a {
+    font-size: 1.5rem;
+    color: #23e7ff;
+    text-decoration: none;
+  }
+
+  .dropdown a:hover {
+    color: #fff;
+  }
+
+  .cancel {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 2rem;
+    color: #23e7ff;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  /* TITLE */
+  .title {
+    color: #23e7ff;
+    margin: 40px 0 40px 0;
+    font-size: 2.5rem;
+    text-shadow: 0 3px 6px #222;
+  }
+
+  /* PROJECTS */
+  .projects-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    padding: 0 10px 60px;
+  }
+
+  .project-card {
+    background: #a39513;
+    border-radius: 20px;
+    overflow: hidden;
+    min-width: 280px;
+    max-width: 350px;
+    text-align: left;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.28);
+    transition: transform 0.2s;
+    flex: 1 1 280px;
+    margin: 10px;
+  }
+
+  .project-card:hover {
+    transform: scale(1.03);
+  }
+
+  .project-image {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .project-image.kipas-angin {
+    background-image: url('img/kipasangin.png');
+  }
+
+  .project-image.tatasurya {
+    background-image: url('img/tatasurya.png');
+  }
+
+  .project-image.search-box {
+    background-image: url('img/search-box\ .png');
+  }
+
+  .project-info {
+    padding: 22px;
+  }
+
+  .project-info h2 {
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #000;
+  }
+
+  .project-info p {
+    margin-bottom: 20px;
+    color: #f1f1f1;
+    font-size: 1.05rem;
+  }
+
+  .project-info button {
+    background-color: #23e7ff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .project-info button:hover {
+    background-color: #fff;
+  }
+
+  .badges span {
+    display: inline-block;
+    background: #181817;
+    color: #fafafa;
+    border-radius: 20px;
+    padding: 7px 17px;
+    margin-right: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 950px) {
+    .title {font-size: 2rem;}
+  }
+
+  @media (max-width: 768px) {
+    .links {display: none;}
+    .hamburger {display: block;}
+  }
+
+  @media (max-width: 700px) {
+    .projects-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .project-card {
+      width: 100%;
+      max-width: 380px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .title {font-size: 1.6rem;}
+    .project-info {padding: 13px;}
+    .project-card {max-width: 95vw;}
+  }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Satria <span>Ramadhan</span></div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skill.html">Skills</a>
+      <a href="contact.html">Contact</a>
+      <a href="projek.html" class="active">Projek</a>
+    </div>
+    <i class="fa-solid fa-bars hamburger" onclick="hamburg()"></i>
+  </nav>
+
+  <!-- DROPDOWN MENU -->
+  <div class="dropdown" id="dropdown">
+    <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skill.html">Skills</a>
+    <a href="contact.html">Contact</a>
+    <a href="projek.html">Projek</a>
+  </div>
+
+  <!-- PROJECT SECTION -->
+  <h1 class="title">My Projects</h1>
+
+  <div class="projects-container">
+    <div class="project-card">
+      <div class="project-image kipas-angin"></div>
+      <div class="project-info">
+        <h2>Fan</h2>
+        <button onclick="document.location='http://127.0.0.1:3000/porto/kipas-angin/kipas.html'">Click</button>
+        <p>A fan that can be adjusted to fast, slow, medium or stop.</p>
+        <div class="badges">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-image tatasurya"></div>
+      <div class="project-info">
+        <h2>Solar System</h2>
+        <button onclick="document.location='http://127.0.0.1:3000/porto/solar%20syteam/index.html'">Click</button>
+        <p>The interactive solar system animation using CSS and JS.</p>
+        <div class="badges">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-image search-box"></div>
+      <div class="project-info">
+        <h2>Search Box</h2>
+        <button onclick="document.location='http://127.0.0.1:3000/porto/search-box/index.html'">Click</button>
+        <p>A stylish animated search box UI design.</p>
+        <div class="badges">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function hamburg() {
+      document.getElementById("dropdown").style.display = "flex";
+    }
+    function cancel() {
+      document.getElementById("dropdown").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

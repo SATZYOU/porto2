@@ -1,4 +1,5 @@
-// Subscrbe YouTube Tamzidan Mahdiyin
+
+
 
 function hamburg(){
     const navbar = document.querySelector(".dropdown")
@@ -48,3 +49,4 @@ function eraseText() {
 }
 
 window.onload = typeWriter;
+
